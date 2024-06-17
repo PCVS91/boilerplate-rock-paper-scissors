@@ -18,11 +18,11 @@ def player(prev_play, opponent_history=[]):
     # Initialize model as a static variable inside the function
     if current_game==1:
         player.model = keras.Sequential([
-            keras.layers.Dense(units=10, activation='relu'),
-            keras.layers.Dense(units=10, activation='relu'),
-            keras.layers.Dropout(0.2),
-            keras.layers.Dense(units=5, activation='relu'),
-            keras.layers.Dropout(0.2),
+            keras.layers.Dense(units=10, activation='sigmoid'),
+            keras.layers.Dense(units=20, activation='sigmoid'),
+            keras.layers.Dropout(0.1),
+            keras.layers.Dense(units=5, activation='sigmoid'),
+            keras.layers.Dropout(0.1),
             keras.layers.Dense(units=3, activation='softmax')
         ])
         player.model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
